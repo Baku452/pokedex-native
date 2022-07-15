@@ -1,13 +1,7 @@
+/* eslint-disable react-native/no-inline-styles */
 import React, {useState} from 'react';
 
-import {
-  View,
-  Text,
-  StyleSheet,
-  VirtualizedList,
-  SafeAreaView,
-  FlatList,
-} from 'react-native';
+import {View, StyleSheet, FlatList, Button} from 'react-native';
 import PokeCard from '../pokeCard/pokecard.component';
 import SearchBar from '../searchPokemon/searchPokemon.component';
 

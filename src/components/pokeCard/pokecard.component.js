@@ -1,6 +1,14 @@
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 
-import {View, Text, Image, StyleSheet, TouchableHighlight} from 'react-native';
+import {
+  View,
+  ActivityIndicator,
+  Text,
+  Image,
+  StyleSheet,
+  TouchableHighlight,
+} from 'react-native';
 
 const PokeCard = ({pokemon, navigation}) => {
   const styles = StyleSheet.create({
@@ -20,17 +28,23 @@ const PokeCard = ({pokemon, navigation}) => {
     },
   });
   return (
-    <TouchableHighlight
-      onPress={() => navigation.navigate('Pokemon', {pokemon})}>
-      <View style={styles.container}>
-        <Image
-          style={styles.image}
-          source={{uri: pokemon.sprites.front_default}}
-        />
-        <Text style={{color: '#fff'}}># {pokemon.id}</Text>
-        <Text style={{color: '#fff'}}>{pokemon.name}</Text>
-      </View>
-    </TouchableHighlight>
+    <>
+      {pokemon ? (
+        <TouchableHighlight
+          onPress={() => navigation.navigate('Pokemon', {pokemon})}>
+          <View style={styles.container}>
+            <Image
+              style={styles.image}
+              source={{uri: pokemon.sprites.front_default}}
+            />
+            <Text style={{color: '#fff'}}># {pokemon.id}</Text>
+            <Text style={{color: '#fff'}}>{pokemon.name}</Text>
+          </View>
+        </TouchableHighlight>
+      ) : (
+        <ActivityIndicator size="large" />
+      )}
+    </>
   );
 };
 
